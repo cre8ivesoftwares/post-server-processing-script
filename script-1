@@ -3,13 +3,13 @@ touch /root/server_auto_update.txt
 sudo echo "0 0 * * * sudo bash ./server_auto_update.txt >/dev/null 2>&1" >> /root/server_auto_update.txt
 crontab -l | { cat; echo "0 0 * * * sudo bash ./server_auto_update.txt >/dev/null 2>&1"; } | crontab -
 sudo service cron reload
-echo
+echo ""
 echo "Cron Job Created"
 echo
 sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
 systemctl enable nginx
 systemctl restart nginx
 apt install zip
-echo
+echo ""
 echo $(date): "Please wait for the pop up confirmation message to appear."
-echo
+echo ""
